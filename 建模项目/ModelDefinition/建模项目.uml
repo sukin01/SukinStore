@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="1f156d70-ba03-4e2c-94b3-010d7b2458a3"
   name="建模项目" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -362,6 +362,633 @@
         name="UseCase1"
         isAbstract="false"
         isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="22fd080c-0ede-40d8-8dac-416d73aeb174"
+        name="提前开通账户操作流程"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <messageOccurrenceSpecification
+            Id="922d8539-4943-4c29-8f93-30a2a1ac1bf8"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="dd9fab98-ae82-424d-9fc5-7bc8c650bb0f"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="594fce3d-fb9c-4ff9-9a54-1ed3fd805b51"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="建模项目.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="351d192e-f553-4351-bd6e-ed7df876add3"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="建模项目.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="1313e6a1-092d-4146-b724-5caf47c341a0"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="建模项目.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="351d192e-f553-4351-bd6e-ed7df876add3"
+            name="ExecutionOccurrenceSpecification1">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="bc818ce5-382a-4eed-a776-2908c3a15516"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="建模项目.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="1313e6a1-092d-4146-b724-5caf47c341a0"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="594fce3d-fb9c-4ff9-9a54-1ed3fd805b51"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="3d4addbc-eede-4a80-80bb-6d748bc3a96f"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="建模项目.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="3983b30f-19c9-4cf7-ac13-e3bb9ecd3729"
+            name="BehaviorExecutionSpecification4">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="a88a672e-5576-4351-a637-23472265dde3"
+                LastKnownName="财务"
+                LastKnownLocation="建模项目.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="b7df0c02-7b21-4089-b811-3c8fa6ac3b9b"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="建模项目.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="2502b56a-1a46-4124-92fa-fcf678f98970"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="建模项目.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="f89fa1f6-46e1-4150-a0f3-29f021382cb3"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="建模项目.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="d0a5c4fe-1f23-4231-9e2b-790767e5bf71"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="建模项目.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="2502b56a-1a46-4124-92fa-fcf678f98970"
+            name="ExecutionOccurrenceSpecification7">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="5a0249dd-9cf0-4ffa-bb3e-928ac1936d5e"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="建模项目.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="a88a672e-5576-4351-a637-23472265dde3"
+                LastKnownName="财务"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f89fa1f6-46e1-4150-a0f3-29f021382cb3"
+            name="MessageOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="a88a672e-5576-4351-a637-23472265dde3"
+                LastKnownName="财务"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="229f1ae4-12d8-4506-8c90-4b59563d3bc1"
+            name="MessageOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d0a5c4fe-1f23-4231-9e2b-790767e5bf71"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="a88a672e-5576-4351-a637-23472265dde3"
+                LastKnownName="财务"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="7c414df3-7f35-475b-a1ff-a1e1b735e1b0"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="b7df0c02-7b21-4089-b811-3c8fa6ac3b9b"
+            name="ExecutionOccurrenceSpecification8">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="7b2cc463-40f8-441b-8ff4-9e64040b043f"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="建模项目.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="a88a672e-5576-4351-a637-23472265dde3"
+                LastKnownName="财务"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="8ed289d0-60f3-4617-a463-c68dd123d545"
+            name="MessageOccurrenceSpecification7">
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="29b9ed4c-3997-4e30-80f7-c047a118a930"
+            name="BehaviorExecutionSpecification3">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="db3b98f8-98bb-4f2a-85fc-d611c9977fad"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="建模项目.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="3fa6dc05-08b6-4f7f-b8f7-c0b581902069"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="建模项目.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="4e7f79b8-5dfb-4c81-9496-650d903639ea"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="建模项目.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="3b2be9eb-faa6-494e-8c9f-a9e28c0c5e57"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="建模项目.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="1973fbdc-fe1c-4239-b86d-6419ebb8db7d"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="建模项目.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="3fa6dc05-08b6-4f7f-b8f7-c0b581902069"
+            name="ExecutionOccurrenceSpecification5">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="5dc1b995-b343-4e29-8b9a-d67ce3cbdb60"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="建模项目.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="4e7f79b8-5dfb-4c81-9496-650d903639ea"
+            name="MessageOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="b504b9c3-1470-42ec-9f4a-167f9a767c42"
+            name="BehaviorExecutionSpecification5">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="a88a672e-5576-4351-a637-23472265dde3"
+                LastKnownName="财务"
+                LastKnownLocation="建模项目.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="61b3423e-4aaf-4023-9843-cf488499d43f"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="建模项目.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="e6008dc0-c54e-405a-9e9d-9f9c52937fe9"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="建模项目.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="5ed45efa-8c9d-4bf2-a3c4-a594b945c383"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="建模项目.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="ba92289c-1bf1-47ac-a614-b76d234cf751"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="建模项目.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="e6008dc0-c54e-405a-9e9d-9f9c52937fe9"
+            name="ExecutionOccurrenceSpecification9">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="cc17cf75-58e1-4df1-a641-ab650a1bfec1"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="建模项目.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="a88a672e-5576-4351-a637-23472265dde3"
+                LastKnownName="财务"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3b2be9eb-faa6-494e-8c9f-a9e28c0c5e57"
+            name="MessageOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="5ed45efa-8c9d-4bf2-a3c4-a594b945c383"
+            name="MessageOccurrenceSpecification14">
+            <covered>
+              <lifelineMoniker
+                Id="a88a672e-5576-4351-a637-23472265dde3"
+                LastKnownName="财务"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ba92289c-1bf1-47ac-a614-b76d234cf751"
+            name="MessageOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="a88a672e-5576-4351-a637-23472265dde3"
+                LastKnownName="财务"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="1973fbdc-fe1c-4239-b86d-6419ebb8db7d"
+            name="MessageOccurrenceSpecification16">
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="61b3423e-4aaf-4023-9843-cf488499d43f"
+            name="ExecutionOccurrenceSpecification10">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="816854b3-a75b-4a83-bf63-02a1ce33d317"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="建模项目.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="a88a672e-5576-4351-a637-23472265dde3"
+                LastKnownName="财务"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="db3b98f8-98bb-4f2a-85fc-d611c9977fad"
+            name="ExecutionOccurrenceSpecification6">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="1051a6f3-628c-4447-b5bd-ed1acdab8158"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="建模项目.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+                LastKnownName="服务市场"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="4b1cef81-400d-48b3-9679-bb02aad824e0"
+            name="服务市场"
+            isActor="false"
+            lifelineDisplayName="‎服务市场‎">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="922d8539-4943-4c29-8f93-30a2a1ac1bf8"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="建模项目.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="351d192e-f553-4351-bd6e-ed7df876add3"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="建模项目.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="594fce3d-fb9c-4ff9-9a54-1ed3fd805b51"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="建模项目.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="229f1ae4-12d8-4506-8c90-4b59563d3bc1"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="建模项目.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="7c414df3-7f35-475b-a1ff-a1e1b735e1b0"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="建模项目.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="8ed289d0-60f3-4617-a463-c68dd123d545"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="建模项目.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="3fa6dc05-08b6-4f7f-b8f7-c0b581902069"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="建模项目.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="db3b98f8-98bb-4f2a-85fc-d611c9977fad"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="建模项目.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="a88a672e-5576-4351-a637-23472265dde3"
+            name="财务"
+            isActor="false"
+            lifelineDisplayName="‎财务‎">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="2502b56a-1a46-4124-92fa-fcf678f98970"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="建模项目.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="b7df0c02-7b21-4089-b811-3c8fa6ac3b9b"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="建模项目.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="e6008dc0-c54e-405a-9e9d-9f9c52937fe9"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="建模项目.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="61b3423e-4aaf-4023-9843-cf488499d43f"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="建模项目.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="1c825c98-e20d-4396-8968-ba7a79e535d5"
+            name="注册"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="922d8539-4943-4c29-8f93-30a2a1ac1bf8"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="建模项目.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="1313e6a1-092d-4146-b724-5caf47c341a0"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="建模项目.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="2c0cdaf3-1257-46f1-a2ac-4f690226b28f"
+            name="财务给客户充值"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="229f1ae4-12d8-4506-8c90-4b59563d3bc1"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="建模项目.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f89fa1f6-46e1-4150-a0f3-29f021382cb3"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="建模项目.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="de16ad91-db2c-411c-9c60-82b9c79c99d1"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d0a5c4fe-1f23-4231-9e2b-790767e5bf71"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="建模项目.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="7c414df3-7f35-475b-a1ff-a1e1b735e1b0"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="建模项目.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="5758797f-130c-43a6-8b4a-4014d5644f9e"
+            name="下单购买并绑定百度账户"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="8ed289d0-60f3-4617-a463-c68dd123d545"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="建模项目.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="4e7f79b8-5dfb-4c81-9496-650d903639ea"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="建模项目.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="51ed371d-615b-4cba-9b3a-8198753bad3c"
+            name="财务修改服务时间"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="3b2be9eb-faa6-494e-8c9f-a9e28c0c5e57"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="建模项目.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="5ed45efa-8c9d-4bf2-a3c4-a594b945c383"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="建模项目.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="385cce96-d39c-4a00-a1a1-4fc96ef28453"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ba92289c-1bf1-47ac-a614-b76d234cf751"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="建模项目.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="1973fbdc-fe1c-4239-b86d-6419ebb8db7d"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="建模项目.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="bc818ce5-382a-4eed-a776-2908c3a15516"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="3d4addbc-eede-4a80-80bb-6d748bc3a96f"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="5dc1b995-b343-4e29-8b9a-d67ce3cbdb60"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="1051a6f3-628c-4447-b5bd-ed1acdab8158"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="5a0249dd-9cf0-4ffa-bb3e-928ac1936d5e"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="7b2cc463-40f8-441b-8ff4-9e64040b043f"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="cc17cf75-58e1-4df1-a641-ab650a1bfec1"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="816854b3-a75b-4a83-bf63-02a1ce33d317"
+        name="ExecutionEvent" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
