@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="89d79393-17a5-4439-a28b-614eb63f17d1" name="UMLUseCaseDiagram1" linkedPackageId="e5b018dc-8964-4993-8c88-d36d3303cf20" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="2412b895-83b8-45f6-9e38-28e6aa486c5d">
+      <elementDefinition Id="364e58e1-a365-403c-8d72-7cf0c14e72ce" />
+      <body>通过参数ControllerFactory +Context生成Controller</body>
+      <annotatedElements>
+        <useCaseMoniker Id="904976c9-7093-432a-8a69-9aed91580f80" LastKnownName="MVCHanlder::ProcessRequest" />
+      </annotatedElements>
+    </comment>
+    <comment Id="bfb201d5-c903-43df-9c7a-872135562352">
+      <elementDefinition Id="b29cd432-9841-47e4-83b5-80e4f0353ff8" />
+      <body>通过函数CreateActionInvoker创建ActionInvoker</body>
+      <annotatedElements>
+        <useCaseMoniker Id="02603764-6cd6-468d-9ec2-2b25cf85cd98" LastKnownName="Controller::Execute" />
+      </annotatedElements>
+    </comment>
+    <comment Id="1e2e2074-4a06-4e36-b74d-ce3a5643e48a">
+      <elementDefinition Id="a4553994-81a6-4527-b40c-8763b3e2d2c6" />
+      <body>通过controller描述和action描述找到FilterInfo   1.执行验证                                                   2.执行InvokeActionResultWithFilters                3.InvokeActionResult</body>
+      <annotatedElements>
+        <useCaseMoniker Id="06827339-31cd-4dc2-bc6c-abc3532fee0f" LastKnownName="IActionInvoker::InvokeAction" />
+      </annotatedElements>
+    </comment>
+    <comment Id="316dee17-cd50-4fb5-9707-dbd0d937a8cc">
+      <elementDefinition Id="982a48ac-1657-49f7-a587-634810c1ea6d" />
+      <body>ActionResult由视图引擎开始处理   1.WebFormViewEngine.CreateView                 2.WebFormView.Render</body>
+      <annotatedElements>
+        <useCaseMoniker Id="5a40ab83-3a36-43a4-8339-e1e45ab24a7f" LastKnownName="ActionResult::ExecuteResult" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <useCase Id="bd0a589f-771b-432e-9696-6fb6b0b2558a" name="IIS" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="eaf66a36-108a-43ca-8e64-2c18022f377f" />
+        <suppliersInternal>
+          <dependency Id="66a4caa3-5c9e-40b2-a18f-9c500d9acd0d">
+            <useCaseMoniker Id="96a1b359-d3d2-4ee9-9f3f-5f67f8f7789a" LastKnownName="asp.net" />
+            <elementDefinition Id="68dde8eb-f43a-44f4-a657-29f62b649d99" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="96a1b359-d3d2-4ee9-9f3f-5f67f8f7789a" name="asp.net" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ac8ef0a3-e2f9-4ecf-ad4e-dac846a91802" />
+        <suppliersInternal>
+          <dependency Id="15c25f96-ed60-4105-9b8f-5f00a0a8cce1">
+            <useCaseMoniker Id="cdc0b025-eeee-4d41-be39-0d35116c0240" LastKnownName="URLRotingModule" />
+            <elementDefinition Id="3dfc779c-2e80-4301-b2dd-3ddf73ee4117" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="cdc0b025-eeee-4d41-be39-0d35116c0240" name="URLRotingModule" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8db44e53-4b91-41f1-b4b9-f70317ece204" />
+        <suppliersInternal>
+          <dependency Id="a09a0789-074e-4709-8098-9a3e767017bc">
+            <useCaseMoniker Id="904976c9-7093-432a-8a69-9aed91580f80" LastKnownName="MVCHanlder::ProcessRequest" />
+            <elementDefinition Id="f374d0a5-2690-490c-a9f1-ebe5f410d69a" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="904976c9-7093-432a-8a69-9aed91580f80" name="MVCHanlder::ProcessRequest" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="71cac4a8-2a5c-4bdc-82d5-bc7e32a0eb58" />
+        <suppliersInternal>
+          <dependency Id="3ce2e93e-1def-4f95-a07c-64dd3f401efc">
+            <useCaseMoniker Id="02603764-6cd6-468d-9ec2-2b25cf85cd98" LastKnownName="Controller::Execute" />
+            <elementDefinition Id="308a7f65-844e-427a-9007-52fc361170de" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="02603764-6cd6-468d-9ec2-2b25cf85cd98" name="Controller::Execute" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b82d45fc-451e-4a6b-9850-73c439ea53c4" />
+        <suppliersInternal>
+          <dependency Id="0e63294a-8fe7-418d-9116-f4438c916d9f">
+            <useCaseMoniker Id="06827339-31cd-4dc2-bc6c-abc3532fee0f" LastKnownName="IActionInvoker::InvokeAction" />
+            <elementDefinition Id="c46608b2-1455-4bd9-8bd3-a1a41ce38ec2" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="06827339-31cd-4dc2-bc6c-abc3532fee0f" name="IActionInvoker::InvokeAction" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c1911288-99f3-407a-85c0-14cd0a8adc30" />
+        <suppliersInternal>
+          <dependency Id="3e60cd10-6b87-4e62-b63d-07af7efa0fa4">
+            <useCaseMoniker Id="5a40ab83-3a36-43a4-8339-e1e45ab24a7f" LastKnownName="ActionResult::ExecuteResult" />
+            <elementDefinition Id="7bcdca5a-fe29-41d4-8e48-b4b3a7745794" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5a40ab83-3a36-43a4-8339-e1e45ab24a7f" name="ActionResult::ExecuteResult" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ed283c4b-6255-43bb-b6a2-e099e6e3737f" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="e5b018dc-8964-4993-8c88-d36d3303cf20" name="建模项目">
+    <elementDefinition Id="1f156d70-ba03-4e2c-94b3-010d7b2458a3" />
+    <profileInstances>
+      <packageHasProfileInstances Id="3f5b2c61-45bc-4b20-a448-a70d32465a6b">
+        <profileInstance Id="3085dc36-38ca-4c35-9901-bbb33dbecdf6" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="fa5772ff-f69b-4ed4-a6dd-3c81d3c29521">
+        <profileInstance Id="adbfda9c-de77-4a41-a90d-98c3c3cedb63" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

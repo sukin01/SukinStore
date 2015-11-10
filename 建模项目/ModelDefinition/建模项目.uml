@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="1f156d70-ba03-4e2c-94b3-010d7b2458a3"
+  name="建模项目" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="364e58e1-a365-403c-8d72-7cf0c14e72ce">
+      <body>通过参数ControllerFactory +Context生成Controller</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="71cac4a8-2a5c-4bdc-82d5-bc7e32a0eb58"
+          LastKnownName="MVCHanlder::ProcessRequest"
+          LastKnownLocation="建模项目.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="b29cd432-9841-47e4-83b5-80e4f0353ff8">
+      <body>通过函数CreateActionInvoker创建ActionInvoker</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="b82d45fc-451e-4a6b-9850-73c439ea53c4"
+          LastKnownName="Controller::Execute"
+          LastKnownLocation="建模项目.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="a4553994-81a6-4527-b40c-8763b3e2d2c6">
+      <body>通过controller描述和action描述找到FilterInfo   1.执行验证                                                   2.执行InvokeActionResultWithFilters                3.InvokeActionResult</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="c1911288-99f3-407a-85c0-14cd0a8adc30"
+          LastKnownName="IActionInvoker::InvokeAction"
+          LastKnownLocation="建模项目.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="982a48ac-1657-49f7-a587-634810c1ea6d">
+      <body>ActionResult由视图引擎开始处理   1.WebFormViewEngine.CreateView                 2.WebFormView.Render</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="ed283c4b-6255-43bb-b6a2-e099e6e3737f"
+          LastKnownName="ActionResult::ExecuteResult"
+          LastKnownLocation="建模项目.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction
+        Id="34e17b3f-02c2-496c-9015-b7f8f7a17737"
+        name="MVC生命周期"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <messageOccurrenceSpecification
+            Id="ca7539b2-1271-485b-aad0-b789790bb26b"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="651ab328-5e49-4ab6-9b3c-e6fcf4610cde"
+                LastKnownName="IIS"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="aebccee9-875b-44dc-ab2c-b09dfd08af28"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="651ab328-5e49-4ab6-9b3c-e6fcf4610cde"
+                LastKnownName="IIS"
+                LastKnownLocation="建模项目.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="4029632e-3d49-4922-a447-6d7bab9a3940"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="建模项目.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="3cb02680-6ad8-487d-ad3e-4c3913b967d4"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="建模项目.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="8d11ef60-08d4-43c9-a110-a6fdcc636f79"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="建模项目.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="3cb02680-6ad8-487d-ad3e-4c3913b967d4"
+            name="ExecutionOccurrenceSpecification1">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="526f5ade-e599-4191-9345-b2dbbaafbd29"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="建模项目.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="651ab328-5e49-4ab6-9b3c-e6fcf4610cde"
+                LastKnownName="IIS"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="8d11ef60-08d4-43c9-a110-a6fdcc636f79"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="651ab328-5e49-4ab6-9b3c-e6fcf4610cde"
+                LastKnownName="IIS"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="4029632e-3d49-4922-a447-6d7bab9a3940"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="5efbcc8d-0cde-4991-b2b9-fefeeb98bc28"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="建模项目.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="651ab328-5e49-4ab6-9b3c-e6fcf4610cde"
+                LastKnownName="IIS"
+                LastKnownLocation="建模项目.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="651ab328-5e49-4ab6-9b3c-e6fcf4610cde"
+            name="IIS"
+            isActor="false"
+            lifelineDisplayName="IIS">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="ca7539b2-1271-485b-aad0-b789790bb26b"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="建模项目.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="3cb02680-6ad8-487d-ad3e-4c3913b967d4"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="建模项目.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="4029632e-3d49-4922-a447-6d7bab9a3940"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="建模项目.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="75b1117a-c621-4c92-8599-60a74b6cf6c9"
+            name="Request"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ca7539b2-1271-485b-aad0-b789790bb26b"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="建模项目.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="8d11ef60-08d4-43c9-a110-a6fdcc636f79"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="建模项目.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="526f5ade-e599-4191-9345-b2dbbaafbd29"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="5efbcc8d-0cde-4991-b2b9-fefeeb98bc28"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="eaf66a36-108a-43ca-8e64-2c18022f377f"
+        name="IIS"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="68dde8eb-f43a-44f4-a657-29f62b649d99">
+            <useCaseMoniker
+              Id="ac8ef0a3-e2f9-4ecf-ad4e-dac846a91802"
+              LastKnownName="asp.net"
+              LastKnownLocation="建模项目.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ac8ef0a3-e2f9-4ecf-ad4e-dac846a91802"
+        name="asp.net"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="3dfc779c-2e80-4301-b2dd-3ddf73ee4117">
+            <useCaseMoniker
+              Id="8db44e53-4b91-41f1-b4b9-f70317ece204"
+              LastKnownName="URLRotingModule"
+              LastKnownLocation="建模项目.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8db44e53-4b91-41f1-b4b9-f70317ece204"
+        name="URLRotingModule"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="f374d0a5-2690-490c-a9f1-ebe5f410d69a">
+            <useCaseMoniker
+              Id="71cac4a8-2a5c-4bdc-82d5-bc7e32a0eb58"
+              LastKnownName="MVCHanlder::ProcessRequest"
+              LastKnownLocation="建模项目.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="71cac4a8-2a5c-4bdc-82d5-bc7e32a0eb58"
+        name="MVCHanlder::ProcessRequest"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="308a7f65-844e-427a-9007-52fc361170de">
+            <useCaseMoniker
+              Id="b82d45fc-451e-4a6b-9850-73c439ea53c4"
+              LastKnownName="Controller::Execute"
+              LastKnownLocation="建模项目.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b82d45fc-451e-4a6b-9850-73c439ea53c4"
+        name="Controller::Execute"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="c46608b2-1455-4bd9-8bd3-a1a41ce38ec2">
+            <useCaseMoniker
+              Id="c1911288-99f3-407a-85c0-14cd0a8adc30"
+              LastKnownName="IActionInvoker::InvokeAction"
+              LastKnownLocation="建模项目.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c1911288-99f3-407a-85c0-14cd0a8adc30"
+        name="IActionInvoker::InvokeAction"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="7bcdca5a-fe29-41d4-8e48-b4b3a7745794">
+            <useCaseMoniker
+              Id="ed283c4b-6255-43bb-b6a2-e099e6e3737f"
+              LastKnownName="ActionResult::ExecuteResult"
+              LastKnownLocation="建模项目.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ed283c4b-6255-43bb-b6a2-e099e6e3737f"
+        name="ActionResult::ExecuteResult"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
