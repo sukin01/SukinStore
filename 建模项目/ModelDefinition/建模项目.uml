@@ -44,6 +44,26 @@
           LastKnownLocation="建模项目.uml" />
       </annotatedElements>
     </comment>
+    <comment
+      Id="3b9650e5-c661-464a-84ee-083ef573734b">
+      <body>实现了IHttpModule接口</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="8db44e53-4b91-41f1-b4b9-f70317ece204"
+          LastKnownName="URLRotingModule"
+          LastKnownLocation="建模项目.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="a9981352-f926-44a4-871d-f3abcf19ba7b">
+      <body>实现了IHttpHanlder接口</body>
+      <annotatedElements>
+        <useCaseMoniker
+          Id="ed4db493-2667-4ce3-94ec-f9c9c5ca3ef2"
+          LastKnownName="MvcRouteHandler::GetMVCHanlder"
+          LastKnownLocation="建模项目.uml" />
+      </annotatedElements>
+    </comment>
   </ownedCommentsInternal>
   <profileInstances>
     <packageHasProfileInstances
@@ -252,10 +272,10 @@
         isLeaf="false">
         <suppliersInternal>
           <dependency
-            Id="f374d0a5-2690-490c-a9f1-ebe5f410d69a">
+            Id="aa202386-6b23-4292-822a-0bb4963edaf8">
             <useCaseMoniker
-              Id="71cac4a8-2a5c-4bdc-82d5-bc7e32a0eb58"
-              LastKnownName="MVCHanlder::ProcessRequest"
+              Id="ed4db493-2667-4ce3-94ec-f9c9c5ca3ef2"
+              LastKnownName="MvcRouteHandler::GetMVCHanlder"
               LastKnownLocation="建模项目.uml" />
           </dependency>
         </suppliersInternal>
@@ -316,6 +336,30 @@
       <useCase
         Id="ed283c4b-6255-43bb-b6a2-e099e6e3737f"
         name="ActionResult::ExecuteResult"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ed4db493-2667-4ce3-94ec-f9c9c5ca3ef2"
+        name="MvcRouteHandler::GetMVCHanlder"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="bf34650e-e514-4dc2-8c00-d662e5fd1eb8">
+            <useCaseMoniker
+              Id="71cac4a8-2a5c-4bdc-82d5-bc7e32a0eb58"
+              LastKnownName="MVCHanlder::ProcessRequest"
+              LastKnownLocation="建模项目.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="595efcfe-27a2-49cf-8cd5-28070a202835"
+        name="UseCase1"
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>

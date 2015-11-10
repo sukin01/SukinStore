@@ -29,6 +29,20 @@
         <useCaseMoniker Id="5a40ab83-3a36-43a4-8339-e1e45ab24a7f" LastKnownName="ActionResult::ExecuteResult" />
       </annotatedElements>
     </comment>
+    <comment Id="166ba776-1c0b-4120-871a-cf9b6b252cff">
+      <elementDefinition Id="3b9650e5-c661-464a-84ee-083ef573734b" />
+      <body>实现了IHttpModule接口</body>
+      <annotatedElements>
+        <useCaseMoniker Id="cdc0b025-eeee-4d41-be39-0d35116c0240" LastKnownName="URLRotingModule" />
+      </annotatedElements>
+    </comment>
+    <comment Id="1fa73b76-79b7-4d3c-ab3d-a141d445bc4a">
+      <elementDefinition Id="a9981352-f926-44a4-871d-f3abcf19ba7b" />
+      <body>实现了IHttpHanlder接口</body>
+      <annotatedElements>
+        <useCaseMoniker Id="7d60142a-4b61-4f48-a127-acae11f7d2e7" LastKnownName="MvcRouteHandler::GetMVCHanlder" />
+      </annotatedElements>
+    </comment>
   </ownedCommentsInternal>
   <packagedElements>
     <useCaseModelRootHasTypes>
@@ -57,9 +71,9 @@
       <useCase Id="cdc0b025-eeee-4d41-be39-0d35116c0240" name="URLRotingModule" isAbstract="false" isLeaf="false">
         <elementDefinition Id="8db44e53-4b91-41f1-b4b9-f70317ece204" />
         <suppliersInternal>
-          <dependency Id="a09a0789-074e-4709-8098-9a3e767017bc">
-            <useCaseMoniker Id="904976c9-7093-432a-8a69-9aed91580f80" LastKnownName="MVCHanlder::ProcessRequest" />
-            <elementDefinition Id="f374d0a5-2690-490c-a9f1-ebe5f410d69a" />
+          <dependency Id="2f2b69f7-14fe-4d10-a757-ca97c6dd7550">
+            <useCaseMoniker Id="7d60142a-4b61-4f48-a127-acae11f7d2e7" LastKnownName="MvcRouteHandler::GetMVCHanlder" />
+            <elementDefinition Id="aa202386-6b23-4292-822a-0bb4963edaf8" />
           </dependency>
         </suppliersInternal>
       </useCase>
@@ -100,6 +114,17 @@
     <useCaseModelRootHasTypes>
       <useCase Id="5a40ab83-3a36-43a4-8339-e1e45ab24a7f" name="ActionResult::ExecuteResult" isAbstract="false" isLeaf="false">
         <elementDefinition Id="ed283c4b-6255-43bb-b6a2-e099e6e3737f" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7d60142a-4b61-4f48-a127-acae11f7d2e7" name="MvcRouteHandler::GetMVCHanlder" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ed4db493-2667-4ce3-94ec-f9c9c5ca3ef2" />
+        <suppliersInternal>
+          <dependency Id="78110660-3bd6-4b1e-98a1-0dfcfc0f3054">
+            <useCaseMoniker Id="904976c9-7093-432a-8a69-9aed91580f80" LastKnownName="MVCHanlder::ProcessRequest" />
+            <elementDefinition Id="bf34650e-e514-4dc2-8c00-d662e5fd1eb8" />
+          </dependency>
+        </suppliersInternal>
       </useCase>
     </useCaseModelRootHasTypes>
   </packagedElements>
