@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SukinStore.Bootstrap.Web", 
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "建模项目", "建模项目\建模项目.modelproj", "{3A0D1C69-7094-4474-B38F-E83C35243352}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SukinStore.DragDropWeb", "SukinStore.DragDropWeb\SukinStore.DragDropWeb.csproj", "{4A215BF3-BF22-49AF-A092-3CEC8DFB5583}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{3A0D1C69-7094-4474-B38F-E83C35243352}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A0D1C69-7094-4474-B38F-E83C35243352}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A0D1C69-7094-4474-B38F-E83C35243352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A215BF3-BF22-49AF-A092-3CEC8DFB5583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A215BF3-BF22-49AF-A092-3CEC8DFB5583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A215BF3-BF22-49AF-A092-3CEC8DFB5583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A215BF3-BF22-49AF-A092-3CEC8DFB5583}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
