@@ -3,48 +3,138 @@
 }
 
 <style type="text/css">
-
     #box {
         width: 800px;
         height: 500px;
         background: #f0f3f9;
         margin: 10px;
-        border:1px solid gray;
-        float:left;
+        border: 1px solid gray;
+        float: left;
     }
 
     #tools {
         width: 200px;
         height: 500px;
         background: #f0f3f9;
-        border:1px solid gray;
+        border: 1px solid gray;
         padding: 5px;
         margin: 10px;
         float: left;
     }
 
+
+    body {
+        -moz-user-select: none; /*火狐*/
+        -webkit-user-select: none; /*webkit浏览器*/
+        -ms-user-select: none; /*IE10*/
+        -khtml-user-select: none; /*早期浏览器*/
+        user-select: none;
+    }
+
     .layout {
         border: 1px dashed gray;
-        height:80px;
-        left:100px;
+        height: 200px;
+        width: 300px;
+        left: 100px;
+        margin:10px;
+    }
+
+    .drag {
+        cursor: pointer;
+        border: 1px dashed gray;
+        margin: 5px;
     }
 </style>
 
-<div style="clear:both;"></div>
 <div style="float:left;">
     <div id="tools">
-        <ul>
-            <li>Coffee</li>
-            <li>Milk</li>
-        </ul>
+        <div drag="true" dragtext="aaaaaaa" class="drag">Coffee</div>
+        <div drag="true" dragtext="bbbbbbb" class="drag">Milk</div>
     </div>
     <div id="box">
-       <div class="layout"></div>
+        <div hold="true" class="layout"></div>
+        <div hold="true" class="layout"></div>
     </div>
 </div>
 
 <div style="clear:both;"></div>
-<script src="~/Scripts/DragDrop/DragDrop.js" type="text/javascript"></script>
+<div>
+    <span id="span"></span>
+    <span id="movespan"></span>
+    <span id="hold"></span>
+    <span id="size"></span>
+</div>
+
+@*<script src="~/Scripts/DragDrop/DragDrop.js" type="text/javascript"></script>*@
+<script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    DragDrop("box");
+    function holdelement(element){
+        this.offset = $(element).offset();
+        this.element = element;
+        this.IsHit = function (e) {
+            var currentx = e.pageX - this.offset.left;
+            var currenty = e.pageY - this.offset.top;
+            var width = $(this.element).width();
+            var height = $(this.element).height();
+            if (currentx > 0 && currentx - width < 0 && currenty > 0 && currenty - height < 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+        this.ToHitSate = function () {
+            $(this.element).css("border", "1px dashed red");
+        };
+        this.ToNormalSate = function () {
+            $(this.element).css("border", "1px dashed gray");
+        };
+    }
+
+    $(this).ready(function () {
+        var arryholdelement = new Array();
+        var dragobj = null;
+        var dragshadow = null;
+        var targetobj = null;
+
+        $("[hold='true']").each(function (index, element) {
+            arryholdelement[index] = new holdelement(element);
+        });
+
+        $("[drag='true']").mousedown(function () {
+            dragobj = $(this);
+            dragshadow = document.createElement("div");
+            dragshadow.style.position = "absolute";
+            dragshadow.innerHTML = dragobj.text();
+            document.getElementById("box").appendChild(dragshadow);
+        });
+
+        document.onmouseup = function () {
+            dragobj = null;
+            targetobj.ToNormalSate();
+            if (dragshadow != null) {
+                document.getElementById("box").removeChild(dragshadow);
+                dragshadow = null;
+            }
+        };
+        document.onmousemove = function (event) {
+            var e = event ? event : window.event;
+            if (dragobj != null && dragshadow != null) {
+                dragshadow.style.left = e.clientX + "px";
+                dragshadow.style.top = e.clientY + "px";
+                for (var i = 0; i < arryholdelement.length; i++) {
+                    if (arryholdelement[i].IsHit(event)) {
+                        targetobj = arryholdelement[i];
+                        targetobj.ToHitSate();
+                        break;
+                    }
+                    else {
+                        arryholdelement[i].ToNormalSate();
+                    }
+                }
+            }
+        };
+    });
 </script>
+
+
