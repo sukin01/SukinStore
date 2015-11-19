@@ -3,46 +3,47 @@
 }
 
 <style type="text/css">
+
     #box {
-        position: absolute;
-        width:800px;
-        height:500px;
-        margin-left:auto;
-        margin-right:auto;
+        width: 800px;
+        height: 500px;
         background: #f0f3f9;
-        /*left: 100px;
-        top: 100px;
+        margin: 10px;
+        border:1px solid gray;
+        float:left;
+    }
+
+    #tools {
+        width: 200px;
+        height: 500px;
+        background: #f0f3f9;
+        border:1px solid gray;
         padding: 5px;
-        background: #f0f3f9;
-        font-size: 12px;
-        -moz-box-shadow: 2px 2px 4px #666666;
-        -webkit-box-shadow: 2px 2px 4px #666666;*/
+        margin: 10px;
+        float: left;
     }
 
-    #main {
-        border: 1px solid #a0b3d6;
-        background: white;
-    }
-
-    #bar {
-        line-height: 24px;
-        background: #beceeb;
-        border-bottom: 1px solid #a0b3d6;
-        padding-left: 5px;
-        cursor: move;
-    }
-
-    #content {
-        width: 420px;
-        height: 250px;
-        padding: 10px 5px;
+    .layout {
+        border: 1px dashed gray;
+        height:80px;
+        left:100px;
     }
 </style>
 
-<div id="box">
-   
+<div style="clear:both;"></div>
+<div style="float:left;">
+    <div id="tools">
+        <ul>
+            <li>Coffee</li>
+            <li>Milk</li>
+        </ul>
+    </div>
+    <div id="box">
+       <div class="layout"></div>
+    </div>
 </div>
 
+<div style="clear:both;"></div>
 <script src="~/Scripts/DragDrop/DragDrop.js" type="text/javascript"></script>
 <script type="text/javascript">
     DragDrop("box");
