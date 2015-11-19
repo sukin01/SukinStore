@@ -36,7 +36,7 @@
         height: 200px;
         width: 300px;
         left: 100px;
-        margin:10px;
+        margin: 10px;
     }
 
     .drag {
@@ -68,7 +68,7 @@
 @*<script src="~/Scripts/DragDrop/DragDrop.js" type="text/javascript"></script>*@
 <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    function holdelement(element){
+    function holdelement(element) {
         this.offset = $(element).offset();
         this.element = element;
         this.IsHit = function (e) {
@@ -91,50 +91,59 @@
         };
     }
 
-    $(this).ready(function () {
-        var arryholdelement = new Array();
-        var dragobj = null;
-        var dragshadow = null;
-        var targetobj = null;
-
-        $("[hold='true']").each(function (index, element) {
-            arryholdelement[index] = new holdelement(element);
-        });
-
-        $("[drag='true']").mousedown(function () {
-            dragobj = $(this);
-            dragshadow = document.createElement("div");
-            dragshadow.style.position = "absolute";
-            dragshadow.innerHTML = dragobj.text();
-            document.getElementById("box").appendChild(dragshadow);
-        });
-
-        document.onmouseup = function () {
-            dragobj = null;
-            targetobj.ToNormalSate();
-            if (dragshadow != null) {
-                document.getElementById("box").removeChild(dragshadow);
-                dragshadow = null;
-            }
-        };
-        document.onmousemove = function (event) {
-            var e = event ? event : window.event;
-            if (dragobj != null && dragshadow != null) {
-                dragshadow.style.left = e.clientX + "px";
-                dragshadow.style.top = e.clientY + "px";
-                for (var i = 0; i < arryholdelement.length; i++) {
-                    if (arryholdelement[i].IsHit(event)) {
-                        targetobj = arryholdelement[i];
-                        targetobj.ToHitSate();
-                        break;
-                    }
-                    else {
-                        arryholdelement[i].ToNormalSate();
+    function Drag(callback) {
+        this.arryholdelement = new Array();
+        this.dragobj = null;
+        this.dragshadow = null;
+        this.holdobj = null;
+        this.init = function (arryholdelement, dragobj, dragshadow, holdobj) {
+            $("[hold='true']").each(function (index, element) {
+                arryholdelement[index] = new holdelement(element);
+            });
+            $("[drag='true']").mousedown(function () {
+                dragobj = $(this);
+                dragshadow = document.createElement("div");
+                dragshadow.style.position = "absolute";
+                dragshadow.innerHTML = dragobj.text();
+                document.getElementById("box").appendChild(dragshadow);
+            });
+            document.onmouseup = function () {
+                if (holdobj != null) {
+                    callback(dragobj, holdobj.element);
+                    holdobj.ToNormalSate();
+                }
+                dragobj = null;
+                if (dragshadow != null) {
+                    document.getElementById("box").removeChild(dragshadow);
+                    dragshadow = null;
+                }
+            };
+            document.onmousemove = function (event) {
+                var e = event ? event : window.event;
+                if (dragobj != null && dragshadow != null) {
+                    holdobj = null;
+                    dragshadow.style.left = e.clientX + "px";
+                    dragshadow.style.top = e.clientY + "px";
+                    for (var i = 0; i < arryholdelement.length; i++) {
+                        if (arryholdelement[i].IsHit(event)) {
+                            holdobj = arryholdelement[i];
+                            holdobj.ToHitSate();
+                            break;
+                        }
+                        else {
+                            arryholdelement[i].ToNormalSate();
+                        }
                     }
                 }
-            }
+            };
         };
+        this.init(this.arryholdelement, this.dragobj, this.dragshadow);
+    }
+
+    $(this).ready(function () {
+        new Drag(function (dragobj, dropobj) {
+            alert($(dragobj).html());
+        });
     });
 </script>
-
 
