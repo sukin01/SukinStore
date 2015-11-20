@@ -5,7 +5,7 @@
 <style type="text/css">
     #box {
         width: 800px;
-        height: 500px;
+        min-height: 300px;
         background: #f0f3f9;
         margin: 10px;
         border: 1px solid gray;
@@ -22,21 +22,22 @@
         float: left;
     }
 
-
-    body {
-        -moz-user-select: none; /*火狐*/
-        -webkit-user-select: none; /*webkit浏览器*/
-        -ms-user-select: none; /*IE10*/
-        -khtml-user-select: none; /*早期浏览器*/
-        user-select: none;
-    }
-
-    .layout {
+    .holder {
         border: 1px dashed gray;
         height: 200px;
         width: 300px;
         left: 100px;
         margin: 10px;
+        float: left;
+    }
+
+    .minholder {
+        border: 1px dashed gray;
+        height: 100px;
+        width: 150px;
+        left: 100px;
+        margin: 10px;
+        float: left;
     }
 
     .drag {
@@ -46,30 +47,70 @@
     }
 </style>
 
-<div style="float:left;">
+<div>
     <div id="tools">
-        <div drag="true" dragtext="aaaaaaa" class="drag">Coffee</div>
-        <div drag="true" dragtext="bbbbbbb" class="drag">Milk</div>
+        <div drag="true" dragshadow="Coffee moving ..." class="drag">Coffee</div>
+        <div drag="true" dragshadow="Milk moving ..." class="drag">Milk</div>
+        <div drag="true" dragshadow="Holder moving ..." class="drag">Holder</div>
     </div>
-    <div id="box">
-        <div hold="true" class="layout"></div>
-        <div hold="true" class="layout"></div>
+    <div hold="true" id="box">
+        <div hold="true" class="holder">
+            <div toolsbar="true">
+                <input type="button" drag_baritem="true" value="编辑" onclick="new function () { alert('编辑'); }"/>
+                <input type="button" drag_baritem="true" value="删除" onclick="new function () { alert('删除'); }"/>
+            </div>
+        </div>
+        <div hold="true" class="holder">
+            <div toolsbar="true">
+                <input type="button" drag_baritem="true" value="编辑" onclick="new function () { alert('编辑'); }" />
+                <input type="button" drag_baritem="true" value="删除" onclick="new function () { alert('删除'); }" />
+            </div>
+        </div>
     </div>
 </div>
 
 <div style="clear:both;"></div>
 <div>
+    <span id="debug"></span>
 </div>
 
-@*<script src="~/Scripts/DragDrop/DragDrop.js" type="text/javascript"></script>*@
 <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    function holdelement(element) {
+    function toolBar(parent, template, callback) {
+        this.bar = null;
+        this.tempbar = $(template).clone(true);
+        $(template).hide();
+        this.parent = parent;
+        this.show = function () {
+            var callback = this.click;
+            var parent = this.parent;
+            this.bar = document.createElement("div");
+            this.bar.style.position = "absolute";
+            this.bar.style.left =  parent.offset.left + "px";
+            this.bar.style.top = parent.offset.top + "px";
+            $(this.bar).append(this.tempbar);
+            document.getElementById("box").appendChild(this.bar);
+        };
+        this.hide = function () {
+            if (this.bar != null) {
+                document.getElementById("box").removeChild(this.bar);
+                this.bar = null;
+            }
+        };
+        this.click = callback;
+        this.refreash = function () {
+            $(template).show();
+        };
+    }
+
+    function holdElement(element) {
         this.offset = $(element).offset();
         this.element = element;
-        this.IsHit = function (e) {
-            var currentx = e.pageX - this.offset.left;
-            var currenty = e.pageY - this.offset.top;
+        this.toolBar = new toolBar(this, $(element).children("[toolsbar='true']"));
+        this.Index = typeof ($(element).attr("holdIndex")) == "undefined" ? 0 : $(element).attr("holdIndex");
+        this.isHit = function (e) {
+            var currentx = e.x - this.offset.left;
+            var currenty = e.y - this.offset.top;
             var width = $(this.element).width();
             var height = $(this.element).height();
             if (currentx > 0 && currentx - width < 0 && currenty > 0 && currenty - height < 0) {
@@ -79,67 +120,187 @@
                 return false;
             }
         };
-        this.ToHitSate = function () {
+        this.toHitSate = function () {
             $(this.element).css("border", "1px dashed red");
+            this.toolBar.hide();
         };
-        this.ToNormalSate = function () {
+        this.toMouseOverSate = function () {
+            $(this.element).css("border", "1px dashed green");
+            this.toolBar.show();
+        };
+        this.toNormalSate = function () {
             $(this.element).css("border", "1px dashed gray");
+            this.toolBar.hide();
         };
     }
 
+    function getMousePoint(event) {
+        var e = event || window.event;
+        var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+        var x = e.pageX || e.clientX + scrollX;
+        var y = e.pageY || e.clientY + scrollY;
+        return { 'x': x, 'y': y };
+    }
+
+    function DragShadowManger() {
+        this.Shadow = null;
+        this.creatDragShadow = function (dragobj, e) {
+            this.Shadow = document.createElement("div");
+            this.Shadow.style.position = "absolute";
+            this.Shadow.innerHTML = dragobj.attr("dragshadow");
+            this.Shadow.style.left = e.x + "px";
+            this.Shadow.style.top = e.y + "px";
+            document.getElementById("box").appendChild(this.Shadow);
+        };
+        this.delDragShadow = function () {
+            if (this.Shadow != null) {
+                document.getElementById("box").removeChild(this.Shadow);
+                this.Shadow = null;
+            }
+        };
+        this.moveDragShadow = function (e) {
+            this.Shadow.style.left = e.x + "px";
+            this.Shadow.style.top = e.y + "px";
+        };
+    }
+
+    var arryHoldElement = new Array();
+    var arryDragElement = new Array();
+
     function Drag(callback) {
-        this.arryholdelement = new Array();
         this.dragobj = null;
-        this.dragshadow = null;
+        this.dragShadowManger = new DragShadowManger();
         this.holdobj = null;
-        this.init = function (arryholdelement, dragobj, dragshadow, holdobj) {
-            $("[hold='true']").each(function (index, element) {
-                arryholdelement[index] = new holdelement(element);
-            });
-            $("[drag='true']").mousedown(function () {
-                dragobj = $(this);
-                dragshadow = document.createElement("div");
-                dragshadow.style.position = "absolute";
-                dragshadow.innerHTML = dragobj.text();
-                document.getElementById("box").appendChild(dragshadow);
-            });
-            document.onmouseup = function () {
-                if (holdobj != null) {
-                    callback(dragobj, holdobj.element);
-                    holdobj.ToNormalSate();
+        this.callback = callback;
+        this.overholdobj = null;
+        this.disableSelectText = function () {
+            if (typeof (document.onselectstart) != "undefined") {
+                document.onselectstart = function (event) {
+                    if (typeof (event) == "undefined" || event.target.tagName != "INPUT") {
+                        return false;
+                    }
                 }
+            } else {
+                // firefox下禁止元素被选取的变通办法       
+                document.onmousedown = function (event) {
+                    if (event.target.tagName != "INPUT") {
+                        return false;
+                    }
+                }
+                document.onmouseup = function (event) {
+                    if (event.target.tagName != "INPUT") {
+                        return false;
+                    }
+                }
+            }
+        };
+        this.init = function () {
+            var dragobj = this.dragobj, holdobj = this.holdobj, overholdobj = this.overholdobj, dragShadowManger = this.dragShadowManger, callback = this.callback;
+            window.onresize = function () {
+                arryHoldElement = new Array();
+                arryDragElement = new Array();
+                $("[hold='true']").each(function (index, element) {
+                    arryHoldElement[index] = new holdElement(element);
+                });
+                //按照排序Index
+                arryHoldElement = arryHoldElement.sort(function (a, b) { return a.index > b.index ? 1 : -1 });
+                $("[drag='true']").each(function (index, element) {
+                    arryDragElement[index] = new holdElement(element);
+                });
+            }
+            $("[hold='true']").each(function (index, element) {
+                arryHoldElement[index] = new holdElement(element);
+            });
+            //按照排序Index
+            arryHoldElement = arryHoldElement.sort(function (a, b) { return a.index > b.index ? 1 : -1 });
+            $("[drag='true']").each(function (index, element) {
+                arryDragElement[index] = new holdElement(element);
+            });
+            document.onmousedown = function (event) {
                 dragobj = null;
-                if (dragshadow != null) {
-                    document.getElementById("box").removeChild(dragshadow);
-                    dragshadow = null;
+                var e = new getMousePoint(event);
+                for (var i = 0; i < arryDragElement.length; i++) {
+                    if (arryDragElement[i].isHit(e)) {
+                        dragobj = $(arryDragElement[i].element);
+                        dragShadowManger.creatDragShadow(dragobj, e);
+                        break;
+                    }
+                    else {
+                        dragShadowManger.delDragShadow();
+                    }
                 }
             };
+            document.onmouseup = function () {
+                if (holdobj != null && dragobj != null) {
+                    callback(dragobj, holdobj.element);
+                    holdobj.toNormalSate();
+                }
+                dragobj = null;
+                dragShadowManger.delDragShadow();
+            };
             document.onmousemove = function (event) {
-                var e = event ? event : window.event;
-                if (dragobj != null && dragshadow != null) {
+                $("#debug").html(arryHoldElement.length);
+                var e = new getMousePoint(event);
+                if (holdobj != null) {
+                    holdobj.toNormalSate();
                     holdobj = null;
-                    dragshadow.style.left = e.clientX + "px";
-                    dragshadow.style.top = e.clientY + "px";
-                    for (var i = 0; i < arryholdelement.length; i++) {
-                        if (arryholdelement[i].IsHit(event)) {
-                            holdobj = arryholdelement[i];
-                            holdobj.ToHitSate();
+                }
+                if (overholdobj != null) {
+                    overholdobj.toNormalSate();
+                    overholdobj = null;
+                }
+                if (dragobj != null && dragShadowManger.Shadow != null) {
+                    dragShadowManger.moveDragShadow(e);
+                    for (var i = 0; i < arryHoldElement.length; i++) {
+                        arryHoldElement[i].toNormalSate();
+                        if (arryHoldElement[i].isHit(e)) {
+                            holdobj = arryHoldElement[i];
+                            holdobj.toHitSate();
                             break;
                         }
-                        else {
-                            arryholdelement[i].ToNormalSate();
+                    }
+                }
+                else {
+                    for (var i = 0; i < arryHoldElement.length; i++) {
+                        arryHoldElement[i].toNormalSate();
+                        if (arryHoldElement[i].isHit(e)) {
+                            overholdobj = arryHoldElement[i];
+                            overholdobj.toMouseOverSate();
+                            break;
                         }
                     }
                 }
             };
         };
-        this.init(this.arryholdelement, this.dragobj, this.dragshadow);
+        this.refreash = function () {
+            $(arryHoldElement).each(function (index, element) {
+                element.toolBar.refreash();
+            });
+            arryHoldElement = new Array();
+            arryDragElement = new Array();
+            $("[hold='true']").each(function (index, element) {
+                arryHoldElement[index] = new holdElement(element);
+            });
+            //按照排序Index
+            arryHoldElement = arryHoldElement.sort(function (a, b) { return a.index > b.index ? 1 : -1 });
+            $("[drag='true']").each(function (index, element) {
+                arryDragElement[index] = new holdElement(element);
+            });
+        };
+        this.disableSelectText();
+        this.init();
     }
 
     $(this).ready(function () {
-        new Drag(function (dragobj, dropobj) {
-            alert($(dragobj).html());
+        var drag = new Drag(function (dragobj, dropobj) {
+            if ($(dragobj).html() == "Holder") {
+                $(dropobj).append("<div hold=\"true\" class=\"holder\"/>");
+                drag.refreash();
+            }
+            else {
+                $(dropobj).append($(dragobj).html());
+            }
         });
     });
 </script>
-
